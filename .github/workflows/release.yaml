@@ -16,12 +16,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
+      - run: npm install --only=prod
       - name: Build github release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: oleksiyrudenko/gha-git-credentials@v2-latest
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
+          token: '${{ secrets.GITHUB_TOKEN }}'
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
