@@ -14,7 +14,8 @@
     "doc-dev": "nuxt doc",
     "doc-start": "nuxt build doc && nuxt start doc",
     "doc-build": "BASE=/vuetify-jsonschema-form/latest/ nuxt generate doc",
-    "doc-master": "BASE=/vuetify-jsonschema-form/master/ nuxt generate doc && gh-pages-multi deploy -v -s doc/dist -t master"
+    "doc-master": "BASE=/vuetify-jsonschema-form/master/ nuxt generate doc && gh-pages-multi deploy -v -s doc/dist -t master",
+    "release": "VERSION=$(cat package.json | grep version | awk -F\\\" '{ print $4 }') && git tag $VERSION && git push origin $VERSION"
   },
   "jest": {
     "moduleFileExtensions": [
