@@ -1,6 +1,6 @@
 {
   "name": "@baking-bad/vjsf",
-  "version": "1.20.4",
+  "version": "1.20.8",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
   "scripts": {

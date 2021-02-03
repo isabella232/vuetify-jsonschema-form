@@ -8,15 +8,16 @@ jobs:
   publish:
     name: Upload to NPM
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/checkout@master
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.16.1
+          node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm test
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
-          check-version: true
-          dry-run: true
