@@ -1,6 +1,6 @@
 {
-  "name": "@koumoul/vjsf",
-  "version": "1.20.0",
+  "name": "@baking-bad/vjsf",
+  "version": "1.20.1",
   "description": "Generate forms for the vuetify UI library (vuejs) based on annotated JSON schemas.",
   "main": "dist/main.js",
   "scripts": {
@@ -14,7 +14,8 @@
     "doc-dev": "nuxt doc",
     "doc-start": "nuxt build doc && nuxt start doc",
     "doc-build": "BASE=/vuetify-jsonschema-form/latest/ nuxt generate doc",
-    "doc-master": "BASE=/vuetify-jsonschema-form/master/ nuxt generate doc && gh-pages-multi deploy -v -s doc/dist -t master"
+    "doc-master": "BASE=/vuetify-jsonschema-form/master/ nuxt generate doc && gh-pages-multi deploy -v -s doc/dist -t master",
+    "release": "VERSION=$(cat package.json | grep version | awk -F\\\" '{ print $4 }') && git tag $VERSION && git push origin $VERSION"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -36,14 +37,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koumoul-dev/vuetify-jsonschema-form.git"
+    "url": "git+https://github.com/baking-bad/vuetify-jsonschema-form.git"
   },
-  "author": "Alban Mouton <alban.mouton@gmail.com>",
+  "author": "Alban Mouton <alban.mouton@gmail.com>, Baking Bad <https://baking-bad.org/>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koumoul-dev/vuetify-jsonschema-form/issues"
+    "url": "https://github.com/baking-bad/vuetify-jsonschema-form/issues"
   },
-  "homepage": "https://github.com/koumoul-dev/vuetify-jsonschema-form#readme",
+  "homepage": "https://github.com/baking-bad/vuetify-jsonschema-form#readme",
   "dependencies": {
     "@mdi/js": "^5.5.55",
     "ajv": "^6.12.0",
